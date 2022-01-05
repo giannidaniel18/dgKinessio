@@ -1,0 +1,22 @@
+<nav id="navbar" class=" menu fixed-top ">
+
+  <a href="/"> <img class="logo btn" src="/images/loguito.png"> </a>
+  <ul class="menu_items mb-0">
+    <li class="{{#if isIndex}} active {{/if}} itenMenu"><a href="/">Inicio</a></li>
+    <li class="{{#if isNosotros}} active {{/if}} itenMenu"><a href="/nosotros">Quienes somos</a></li>
+    <li class="{{#if isServicios}} active {{/if}} itenMenu"><a href="/servicios">Servicios</a></li>
+    <li class="{{#if isContactos}} active {{/if}} itenMenu"><a href="/contactos">Contacto</a></li>
+    {{#unless logueado}}
+    <li class="itenMenu ml-5 " id="liLogin"><a href="/users/signIn"> <i class="fas fa-user"></i> Iniciar sesión</a></li>
+    <li class="itenMenu  mr-5" id="register"><a href="/users/signup"> <i class="fas fa-key"></i> registrarse</a></li>
+    {{/unless}}
+    {{#if logueado}}
+    <li class="{{#if isEjercicios}} active {{/if}}itenMenu"><a href="/ejercicios">Ejercicios</a></li>
+    <li class="itenMenu ml-5 " id="usuario"><a href="#">{{email}}</a></li>
+    <li class="itenMenu  mr-5" id="logout"><a href="/users/logout"> <i class="fas fa-key"></i> Cerrar sesion</a></li>
+    {{/if}}
+  </ul>
+  <span id="burger_menu" class="btn_menu" role="button" onclick="showMenu()"><i class="fas fa-bars"></i></span>
+
+
+</nav>

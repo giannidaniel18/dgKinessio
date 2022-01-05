@@ -1,0 +1,65 @@
+<section class="section">
+    <h1 class="text-center my-4">Ejercicios creados</h1>
+    <div class="container d-flex justify-content-between my-3">
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="search"><i class="fas fa-search"></i></span>
+            </div>
+            <input type="search" class="form-control" placeholder="Buscar" aria-label="Username"
+                aria-describedby="search">
+        </div>
+
+    </div>
+
+
+    {{#each ejercicios}}
+
+    <div class="accordion container" id="accordionExample">
+        <div class="card">
+            <div class="card-header d-inline-flex" id="heading{{id_ejercicio}}">
+                <div class="col-md-8">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#ejercicio{{id_ejercicio}}" aria-expanded="true"
+                            aria-controls="{{id_ejercicio}}">{{nombre_ejercicio}}
+                        </button>
+                    </h2>
+                </div>
+                <div class="col-md-4 d-flex justify-content-end">
+                    <button type="button " class="btn btn-danger rounded mx-2">Eliminar <i class="far fa-trash-alt"></i>
+                    </button>
+                    <button type="button" class="btn btn-warning rounded  mx-2">Modificar <i
+                            class="far fa-edit"></i></i></button>
+                </div>
+            </div>
+
+            <div id="ejercicio{{id_ejercicio}}" class="collapse " aria-labelledby="heading{{id_ejercicio}}"
+                data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{zona_anatomica}}</h3>
+                            <p>{{descripcion}}</p>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h3> Nivel de dificultad : {{nivel}} </h3>
+                        </div>
+                        <div class="col-md-12 ">
+                            <iframe width="100%" height="400" src="{{link_video}}">
+                            </iframe>
+                        </div>
+                        <div class="col-md-12">
+                            <p><strong>Contraindicaciones : </strong> {{contraindicaciones}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</section>

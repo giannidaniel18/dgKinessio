@@ -1,0 +1,72 @@
+<section id="contacto" class="section">
+ {{#if message}}
+        <div class=" mt-3 alert alert-success alert-dismissible fade show" role="alert">
+          <strong>¡Mensaje enviado!</strong> En breves nos pondremos en contacto con usted ¡Muchas gracias por confiar en nosotros!
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> 
+        </div>
+        {{/if}}
+
+   <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, harum a itaque deserunt blanditiis voluptate totam ipsam, porro quod aliquid eos. Doloribus repellat, quae tenetur eius ab ducimus inventore excepturi!
+   Reprehenderit ullam expedita modi exercitationem consectetur eos aspernatur nemo excepturi necessitatibus placeat voluptatem veritatis praesentium ipsam, perspiciatis corrupti eius nisi veniam alias deserunt a id? Fugiat consectetur delectus officiis atque.
+   Suscipit reiciendis molestiae, voluptatum quaerat recusandae id nostrum sint consectetur odio et, error eum quia repellat dignissimos? Quo mollitia sit doloremque sed, in ab voluptatibus maiores sapiente distinctio cupiditate modi.</p>
+  <div class="container-fluid">
+    
+    <div class="row">
+      <div id="map" class="col-lg-6 col-md-6 col-xs-12">
+        <div>
+          <h2>¿Donde estamos?</h1>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23405.075239884736!2d-58.383165999662886!3d-34.60634713849983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccad80a33a051%3A0xa29935677c01eaee!2sSantiago%20del%20Estero%20808%2C%20C1075%20AAR%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1636422490011!5m2!1ses-419!2sar"
+              width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen="true"></iframe>
+        </div>
+
+
+      </div>
+      <div id="contact-us" class="col-lg-6 col-md-6 col-xs-12">
+        <div class="contact-form">
+          <form id="" action="/send-email" method="post">
+            <h2>Contactanos</h1>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <fieldset>
+                    <input name="name" type="text" id="name" placeholder="Nombre y Apellido*" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <fieldset>
+                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="email*"
+                      required="true">
+
+                  </fieldset>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <fieldset>
+                    <input name="subject" type="text" id="subject" placeholder="Asunto">
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <textarea name="message" rows="6" id="message" placeholder="Mensaje" required=""></textarea>
+
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="main-button">Enviar mensaje</button>
+                  </fieldset>
+                </div>
+              </div>
+          </form>
+
+
+        </div>
+        
+      </div>
+    
+    </div>
+
+  </div>
+</section>
