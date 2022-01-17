@@ -1,44 +1,44 @@
-<section class="section">
+<section class="section" >
 
-    <div id="addEjercicio" class="row">
+    <div id="addEjercicio">
         <div class="col-md-8 mx-auto my-auto">
             <div class="card shadow rounded">
                 <div class="card-header">
                     <h1>Creacion de ejercicios</h1>
                 </div>
                 <div class="card-body">
-                    <form action="/ejercicios/add" method="POST">
+                    <form action="/ejercicios/edit/{{ejercicio.id_ejercicio}}" method="POST">
                         <div class="form-group row">
                             <div class="col-md-5 my-2">
                                 <label for="nombre">Nombre del ejercicio</label>
-                                <input type="text" name="nombre_ejercicio" class="form-control" >
+                                <input value="{{ejercicio.nombre_ejercicio}}" type="text" name="nombre_ejercicio" class="form-control" >
                             </div>
                             <div class="col-md-5 my-2">
                                 <label for="zonaAnatomica">Zona anatomica</label>
-                                <input type="text" name="zona_anatomica" class="form-control">
+                                <input value="{{ejercicio.zona_anatomica}}" type="text" name="zona_anatomica" class="form-control">
                             </div>
                             <div class="col-md-2 my-2">
                                 <label for="nivel">Nivel del ejercicio</label>
-                                <input type="number" name="nivel" class="form-control"  >
+                                <input value="{{ejercicio.nivel}}" type="number" name="nivel" class="form-control"  >
                             </div>
                             <div class="col-md-12 my-2">
                                 <label for="descripcion">Descripcion del ejercicio</label>
-                                <input type="text" name="descripcion" id="descripcion" class="form-control" > 
+                                <input value="{{ejercicio.descripcion}}" type="text" name="descripcion" id="descripcion" class="form-control" > 
                             </div>
                             <div class="col-md-6 my-2">
                                 <label for="linkVideo">Video explicativo</label>
-                                <input type="text" name="link_video" class="form-control">
+                                <input value="{{ejercicio.link_video}}" type="text" name="link_video" class="form-control">
                             </div>
                             <div class="col-md-6 my-2">
                                 <label for="contraindicaciones">Descripcion del ejercicio</label>
-                                <input type="text" name="contraindicaciones" id="contraindicaciones " class="form-control"> 
+                                <input value="{{ejercicio.contraindicaciones}}"type="text" name="contraindicaciones" id="contraindicaciones " class="form-control"> 
                             </div>
 
 
                         </div>
 
                         <div class="text-right">
-                            <button type="submit" class="btn btn-success">Crear <i class="fas fa-plus"></i></button>
+                            <button type="submit" class="btn btn-warning">Actualizar Ejercicio <i class="fas fa-sync"></i></button>
                         </div>
 
                         

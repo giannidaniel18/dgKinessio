@@ -3,15 +3,21 @@ const { engine } = require ('express-handlebars');
 const path = require ('path');
 const session = require('express-session')
 const morgan = require ('morgan')
+const flash = require ('connect-flash')
+const MySQLStore = require ('express-mysql-session');
+const passport = require('passport');
+
+const database = {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password : process.env.DB_PASSWORD ,
+    database : process.env.DB_DATABASE
+}
 
 // Initializations
 const app = express();
 require('dotenv').config()
-
-
-
-
-
+require('./lib/passport')
 
 // Settings
 app.set('port', process.env.PORT || 4000 );
@@ -31,16 +37,28 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname , 'public')));
 
 // Middlewares
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
 app.use(session({
     secret: 'askldj1234jakldsj12',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
+   
 }));
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Global Variables
+
+app.use((req,res, next) =>{
+
+    app.locals.success = req.flash('success')
+    next();
+
+});
 
 // Routes
 

@@ -1,36 +1,39 @@
-
+const passport = require('passport')
 const usersCtrl = {};
 
 usersCtrl.renderSignUpForm = (req,res) => {
-    res.render('users/signup');
+    
+    res.render('users/signup', {footer: true});
 };
 usersCtrl.signUp = (req,res) => {
 
     const errors = [];
-    const {nombre, apellido, dni, tel, email, password, confirmpassword} = req.body;
+    const {nombreUsuario, apellidoUsuario, emailUsuario, passwordUsuario, confirmpassword} = req.body;
 
-    if(password != confirmpassword) {
+    if(passwordUsuario != confirmpassword) {
         errors.push({text:'Las contraseñas no coinciden'});
     }
-    if(password.length < 4 ){
+    if(passwordUsuario.length < 4 ){
         errors.push({text:'La contraseña debe tener al menos 4 caracteres'});
     }
     if (errors.length > 0 ) {
         res.render('users/signup', {
             errors, 
-            nombre, 
-            apellido, 
-            dni, 
-            tel, 
-            email});
+            nombreUsuario, 
+            apellidoUsuario,  
+            emailUsuario});
     }
     else{
-        res.send('REGISTRADO')
+        passport.authenticate('local.signup', {
+            successRedirect: '/',
+            failureRedirect: '/users/signup',
+            failureFlash: true
+        })(req,res)
     }
 };
 
 usersCtrl.renderSignInForm = (req,res) => {
-    res.render('users/signin')
+    res.render('users/signin', {footer: true})
 };
 
 usersCtrl.signIn = (req,res) => {

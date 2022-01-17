@@ -11,7 +11,16 @@
     <li class="itenMenu  mr-5" id="register"><a href="/users/signup"> <i class="fas fa-key"></i> registrarse</a></li>
     {{/unless}}
     {{#if logueado}}
-    <li class="{{#if isEjercicios}} active {{/if}}itenMenu"><a href="/ejercicios">Ejercicios</a></li>
+    <li class="nav-item dropdown">
+        <a class="{{#if isEjercicios}} active {{/if}}itenMenu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Ejercicios
+        </a>
+        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-secondary " href="/ejercicios">Todos los ejercicios</a>
+          <a class="dropdown-item text-secondary font-weight-light" href="/ejercicios/create">Crear un ejercicio</a>
+        </div>
+      </li>
+    
     <li class="itenMenu ml-5 " id="usuario"><a href="#">{{email}}</a></li>
     <li class="itenMenu  mr-5" id="logout"><a href="/users/logout"> <i class="fas fa-key"></i> Cerrar sesion</a></li>
     {{/if}}
