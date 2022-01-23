@@ -2,17 +2,14 @@ const pool = require('../database')
 const ejerciciosCtrl = {};
 
 ejerciciosCtrl.renderEjercicios = async (req, res) => {
-    var logueado = Boolean(req.session.email)
     const ejercicios = await pool.query('SELECT * FROM ejercicios order by id_ejercicio asc')
     res.render('ejercicios/list', {
         isEjercicios: true,
-        logueado: logueado,
-        email: req.session.email,
-        ejercicios
+        ejercicios,
+        footer: false
     });
 }
 ejerciciosCtrl.addEjercicio = async (req, res) => {
-    var logueado = Boolean(req.session.email)
     const {nombre_ejercicio,zona_anatomica,nivel,descripcion,link_video,contraindicaciones} = req.body
     const newEjercicio = {
         nombre_ejercicio,
@@ -28,7 +25,6 @@ ejerciciosCtrl.addEjercicio = async (req, res) => {
     res.redirect('/ejercicios')
 }
 ejerciciosCtrl.deleteEjercicio = async (req, res) => {
-    var logueado = Boolean(req.session.email)
     const {
         id_ejercicio
     } = req.params;
@@ -37,7 +33,6 @@ ejerciciosCtrl.deleteEjercicio = async (req, res) => {
     res.redirect('/ejercicios')
 }
 ejerciciosCtrl.editEjercicio = async (req, res) => {
-    var logueado = Boolean(req.session.email)
     const {
         id_ejercicio
     } = req.params;
@@ -46,8 +41,6 @@ ejerciciosCtrl.editEjercicio = async (req, res) => {
     res.render('ejercicios/edit', {
         ejercicio: ejercicio[0],
         isEjercicios: true,
-        logueado: logueado,
-        email: req.session.email
     });
 
 }
@@ -71,11 +64,9 @@ ejerciciosCtrl.updateEjercicio = async (req, res) => {
 
 }
 ejerciciosCtrl.renderEjerciciosform = (req, res) => {
-    var logueado = Boolean(req.session.email)
     res.render('ejercicios/add', {
         isEjercicios: true,
-        logueado: logueado,
-        email: req.session.email
+        footer: false
     });
 }
 

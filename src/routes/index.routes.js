@@ -5,7 +5,7 @@ const {renderIndex , renderContacto ,renderNosotros , renderServicios } = requir
 
 router.get('/', renderIndex);
 router.get('/contactos', renderContacto);
-router.get('/nosotros', renderNosotros);
+router.get('/nosotros2', renderNosotros);
 router.get('/servicios', renderServicios);
 
 

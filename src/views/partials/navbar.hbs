@@ -3,26 +3,26 @@
   <a href="/"> <img class="logo btn" src="/images/loguito.png"> </a>
   <ul class="menu_items mb-0">
     <li class="{{#if isIndex}} active {{/if}} itenMenu"><a href="/">Inicio</a></li>
-    <li class="{{#if isNosotros}} active {{/if}} itenMenu"><a href="/nosotros">Quienes somos</a></li>
+    <li class="{{#if isNosotros}} active {{/if}} itenMenu"><a href="/nosotros2">Quienes somos</a></li>
     <li class="{{#if isServicios}} active {{/if}} itenMenu"><a href="/servicios">Servicios</a></li>
     <li class="{{#if isContactos}} active {{/if}} itenMenu"><a href="/contactos">Contacto</a></li>
-    {{#unless logueado}}
-    <li class="itenMenu ml-5 " id="liLogin"><a href="/users/signIn"> <i class="fas fa-user"></i> Iniciar sesión</a></li>
+    {{#unless user}}
+    <li class="itenMenu ml-5 " id="liLogin"><a href="/users/signIn"> <i class="fas fa-sign-in-alt"></i> Iniciar sesión</a></li>
     <li class="itenMenu  mr-5" id="register"><a href="/users/signup"> <i class="fas fa-key"></i> registrarse</a></li>
     {{/unless}}
-    {{#if logueado}}
+    {{#if user}}
     <li class="nav-item dropdown">
         <a class="{{#if isEjercicios}} active {{/if}}itenMenu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
           Ejercicios
         </a>
-        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-secondary " href="/ejercicios">Todos los ejercicios</a>
-          <a class="dropdown-item text-secondary font-weight-light" href="/ejercicios/create">Crear un ejercicio</a>
+        <div class="dropdown-menu " aria-labelledby="navbarDropdown" style="background-color: #6351ce;" >
+          <a class="dropdown-item " href="/ejercicios" style="background-color: #6351ce;">Todos los ejercicios</a>
+          <a class="dropdown-item " href="/ejercicios/create" style="background-color: #6351ce;" >Crear un ejercicio</a>
         </div>
       </li>
     
-    <li class="itenMenu ml-5 " id="usuario"><a href="#">{{email}}</a></li>
-    <li class="itenMenu  mr-5" id="logout"><a href="/users/logout"> <i class="fas fa-key"></i> Cerrar sesion</a></li>
+    <li class="itenMenu ml-5 " id="usuario"><a href="#"><i class="fas fa-user"></i> {{user.nombre_user}}</a></li>
+    <li class="itenMenu mr-5" id="logout"><a href="/users/logout"> <i class="fas fa-key"></i> Cerrar sesion</a></li>
     {{/if}}
   </ul>
   <span id="burger_menu" class="btn_menu" role="button" onclick="showMenu()"><i class="fas fa-bars"></i></span>

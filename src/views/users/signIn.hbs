@@ -1,6 +1,6 @@
 <section class="section ">
 
-    
+    {{>messages}}
     <div id="signIn" class="row">
         <div class="col-md-4 mx-auto my-auto">
             <div class="card shadow rounded">
@@ -12,12 +12,12 @@
                     <form action="/users/signin" method="POST">
                         <div class="form-group">
                             <label for="email">Dirección de correo electrónico</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" name="emailUsuario" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="correo@electronico.com.ar">
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control" name="passwordUsuario">
                             <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu información con
                                 nadie</small>
                         </div>

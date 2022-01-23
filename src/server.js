@@ -7,17 +7,21 @@ const flash = require ('connect-flash')
 const MySQLStore = require ('express-mysql-session');
 const passport = require('passport');
 
+
+
+
+
+// Initializations
+const app = express();
+require('dotenv').config()
+require('./lib/passport')
+
 const database = {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password : process.env.DB_PASSWORD ,
     database : process.env.DB_DATABASE
 }
-
-// Initializations
-const app = express();
-require('dotenv').config()
-require('./lib/passport')
 
 // Settings
 app.set('port', process.env.PORT || 4000 );
@@ -40,7 +44,8 @@ app.use(express.static(path.join(__dirname , 'public')));
 app.use(session({
     secret: 'askldj1234jakldsj12',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MySQLStore(database)
    
 }));
 app.use(morgan('dev'));
@@ -51,11 +56,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 // Global Variables
 
 app.use((req,res, next) =>{
-
-    app.locals.success = req.flash('success')
+    app.locals.failure = req.flash('failure');
+    app.locals.success = req.flash('success');
+    app.locals.warning = req.flash('warning');
+    app.locals.user = req.user;
     next();
 
 });
