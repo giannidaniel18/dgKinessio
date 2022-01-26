@@ -1,0 +1,74 @@
+<section class="section">
+    <div class="container rounded bg-white mb-5 editprofile border">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                        width="150px"
+                        src="https://randomuser.me/api/portraits/men/{{user.id_user}}.jpg"><span
+                        class="font-weight-bold">
+                        {{user.nombre_user}} {{user.apellido_user}}</span><span
+                        class="text-black-50">{{user.mail_user}}</span><span> </span></div>
+            </div>
+            <form action="/users/editProfile" method="POST" class="col-md-9 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Modificar perfil</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="nombre">Nombre</label>
+                            <input name="nombreUsuario" type="text" class="form-control" placeholder="Nombre"
+                                value="{{user.nombre_user}}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="apellido">Apellido</label>
+                            <input name="apellidoUsuario" type="text" class="form-control" placeholder="Apellido"
+                                value="{{user.apellido_user}}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email">Direccion de correo electronico</label>
+                            <input name="emailUsuario" type="email" class="form-control"
+                                placeholder="example@email.com.ar" value="{{user.mail_user}}">
+                        </div>
+                    </div>
+                    <div class="row mt-3"> 
+                        <div class="col-md-5">
+                            <label for="tipoDoc">Tipo de documento</label>
+                            <select class="form-control" name="tipoDoc">
+                                <option value="DNI">Documento Nacional de Identidad</option>
+                                <option value="CI">Cédula de Identidad</option>
+                                <option value="LC">Libreta Cívica</option>
+                                <option value="LE">Libreta de Enrolamiento</option>
+                                <option value="OTRO">Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="nroDoc">Numero de documento</label>
+                            <input type="number" name="nroDoc" class="form-control" placeholder="35442342 (sin puntos ni comas)">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="Nacionalidad">Nacionalidad</label>
+                            <input type="text" name="Nacionalidad" class="form-control" placeholder="ARG">
+                        </div>
+
+                    </div>
+                    <div class="row mt-3"> 
+                       <div class="col-md-3">
+                           <label for="codArea">Código de area</label>
+                           <input name="codArea" type="text" placeholder="011" class="form-control">
+                       </div>
+                        <div class="col-md-5">
+                            <label for="nroTel">Número de teléfono</label>
+                           <input type="text" name="nroTel" placeholder="34551805 (sin el 15 ni guiones) " class="form-control" >
+                       </div>
+
+                    </div>
+
+                    <div class="mt-5 text-right"><button class="btn btn-success profile-button" type="submit">Actualizar perfil</button></div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</section>

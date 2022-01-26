@@ -1,5 +1,4 @@
 const passport = require('passport')
-const {isLoggedIn} = require('../lib/auth')
 const usersCtrl = {};
 
 usersCtrl.renderSignUpForm = (req,res) => {
@@ -40,7 +39,7 @@ usersCtrl.renderSignInForm = (req,res) => {
 usersCtrl.signIn = (req,res,next) => {
     
     passport.authenticate('local.signin',{
-        successRedirect: '/',
+        successRedirect: '/users/profile',
         failureRedirect: '/users/signin',
         failureFlash: true
     })(req,res,next)
@@ -57,6 +56,11 @@ usersCtrl.logOut = (req,res) => {
     req.logOut();
     res.redirect('/users/signin');
 };
-
+usersCtrl.renderEditProfile = (req,res) =>{
+    res.render('users/editProfile', {footer: true});
+}
+usersCtrl.renderProfile = (req,res) =>{
+    res.render('users/profile', {footer: true});
+}
 
 module.exports = usersCtrl;

@@ -1,0 +1,64 @@
+<section class="section">
+ <div class="container rounded bg-white mb-5 editprofile border">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                        width="150px"
+                        src="https://randomuser.me/api/portraits/men/{{user.id_user}}.jpg"><span
+                        class="font-weight-bold">
+                        {{user.nombre_user}} {{user.apellido_user}}</span><span
+                        class="text-black-50">{{user.mail_user}}</span><span> </span></div>
+            </div>
+            <div class="col-md-9 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="text-right">Perfil de usuario</h2>
+                    </div>
+                    <div class="row mt-2 ">
+                        <div class="col-md-4 border-left">
+                            <h4>Nombre</h4>
+                            <p >{{user.nombre_user}}</p>
+                        </div>
+                        <div class="col-md-4 border-left">
+                            <h4>Apellido</h4>
+                            <p>{{user.apellido_user}}</p>
+                        </div>
+                        <div class="col-md-4 border-left">
+                           <h4>Correo electrónico</h4>
+                            <p>{{user.mail_user}}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3 "> 
+                        <div class="col-md-4 border-left">
+                            <h4>Tipo de documento</h4>
+                            <p>{{user.id_tipoDoc}}</p>
+                        </div>
+                        <div class="col-md-5 border-left">
+                             <h4>Numero de documento</h4>
+                            <p>{{user.nro_doc}}</p>
+                        </div>
+                        <div class="col-md-3 border-left">
+                             <h4>Nacionalidad</h4>
+                            <p>{{user.Nacionalidad}}</p>
+                        </div>
+
+                    </div>
+                    <div class="row mt-3"> 
+                       <div class="col-md-4 border-left">
+                            <h4>Telefono de contacto</h4>
+                            <p>{{user.tel_contacto}}</p>
+                       </div>
+                        
+
+                    </div>
+
+                    <div class="mt-5 text-right">
+                        <a href="/users/editProfile" class="btn btn-warning profile-button" type="button">Modificar perfil <i class="fas fa-edit"></i> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
