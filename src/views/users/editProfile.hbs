@@ -1,7 +1,10 @@
 <section class="section">
-    <div class="container rounded bg-white mb-5 editprofile border">
-        <div class="row">
-            <div class="col-md-3">
+    <div class="container px-0 rounded mb-5 border editprofile card shadow bg-light">
+        <div class="card-header">
+         <h2 >Modificar perfil</h2>
+     </div>
+        <div class="row card-body">
+            <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                         width="150px"
                         src="https://randomuser.me/api/portraits/men/{{user.id_user}}.jpg"><span
@@ -9,32 +12,33 @@
                         {{user.nombre_user}} {{user.apellido_user}}</span><span
                         class="text-black-50">{{user.mail_user}}</span><span> </span></div>
             </div>
-            <form action="/users/editProfile" method="POST" class="col-md-9 border-right">
+            <form action="/users/editProfile/{{user.id_user}}" method="POST" class="col-md-9 ">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Modificar perfil</h4>
+                        
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-4">
-                            <label for="nombre">Nombre</label>
+                            <label for="nombre"><strong>Nombre</strong></label>
                             <input name="nombreUsuario" type="text" class="form-control" placeholder="Nombre"
                                 value="{{user.nombre_user}}">
                         </div>
                         <div class="col-md-4">
-                            <label for="apellido">Apellido</label>
+                            <label for="apellido"><strong>Apellido</strong></label>
                             <input name="apellidoUsuario" type="text" class="form-control" placeholder="Apellido"
                                 value="{{user.apellido_user}}">
                         </div>
                         <div class="col-md-4">
-                            <label for="email">Direccion de correo electronico</label>
+                            <label for="email"><strong>Dirección de correo electrónico</strong></label>
                             <input name="emailUsuario" type="email" class="form-control"
                                 placeholder="example@email.com.ar" value="{{user.mail_user}}">
                         </div>
                     </div>
                     <div class="row mt-3"> 
                         <div class="col-md-5">
-                            <label for="tipoDoc">Tipo de documento</label>
+                            <label for="tipoDoc"><strong>Tipo de documento</strong></label>
                             <select class="form-control" name="tipoDoc">
+                                <option value="{{user.id_tipoDoc}}">{{user.id_tipoDoc}}</option>
                                 <option value="DNI">Documento Nacional de Identidad</option>
                                 <option value="CI">Cédula de Identidad</option>
                                 <option value="LC">Libreta Cívica</option>
@@ -43,28 +47,25 @@
                             </select>
                         </div>
                         <div class="col-md-5">
-                            <label for="nroDoc">Numero de documento</label>
-                            <input type="number" name="nroDoc" class="form-control" placeholder="35442342 (sin puntos ni comas)">
+                            <label for="nroDoc"><strong>Número de documento</strong></label>
+                            <input type="number" name="nroDoc" class="form-control" placeholder="35442342 (sin puntos ni comas)" value="{{user.nro_doc}}">
                         </div>
                         <div class="col-md-2">
-                            <label for="Nacionalidad">Nacionalidad</label>
-                            <input type="text" name="Nacionalidad" class="form-control" placeholder="ARG">
+                            <label for="Nacionalidad"><strong>Nacionalidad</strong></label>
+                            <input type="text" name="Nacionalidad" class="form-control" placeholder="ARG" value="{{user.Nacionalidad}}">
                         </div>
 
                     </div>
                     <div class="row mt-3"> 
-                       <div class="col-md-3">
-                           <label for="codArea">Código de area</label>
-                           <input name="codArea" type="text" placeholder="011" class="form-control">
-                       </div>
+                       
                         <div class="col-md-5">
-                            <label for="nroTel">Número de teléfono</label>
-                           <input type="text" name="nroTel" placeholder="34551805 (sin el 15 ni guiones) " class="form-control" >
+                            <label for="nroTel"><strong>Número de teléfono</strong></label>
+                           <input type="text" name="nroTel" placeholder="34551805 (sin el 15 ni guiones) " class="form-control" value="{{user.tel_contacto}}" >
                        </div>
 
                     </div>
 
-                    <div class="mt-5 text-right"><button class="btn btn-success profile-button" type="submit">Actualizar perfil</button></div>
+                    <div class="mt-5 text-right"><button style="background-color: #6351ce; " class="btn text-white profile-button" type="submit">Actualizar perfil <i class="fas fa-cloud-upload-alt"></i></button></div>
                 </div>
             </form>
 

@@ -1,6 +1,6 @@
 body {
   padding: 0px !important;
-  
+  font-family: 'Open Sans', sans-serif
   
 }
 html {
@@ -13,10 +13,23 @@ img {
   height: auto;
 }
 
-.editprofile{
-  margin-top: 100px ;
-  width: 75%;
+
+.editprofile::before{
+  
+      content: "";
+      background-image: url('https://thumbs.dreamstime.com/b/purple-blue-two-color-soft-paper-pastel-background-minimal-flat-lay-style-fashionable-cosmetics-top-view-wallpaper-geometric-117863968.jpg');
+      background-size: cover;
+      position: absolute;
+      
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.1;
+  
 }
+
+
 .section {
   width: 100vw;
  
@@ -26,6 +39,7 @@ img {
   background-image: url('/images/body-background-3.png');
   background-repeat: repeat;
   background-size: 100%;
+
  
 }
 
