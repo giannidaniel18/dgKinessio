@@ -1,0 +1,43 @@
+<section class="section">
+    {{>messages}}
+  <div class="container table-responsive">
+    <h1>Administración de perfiles de usuarios</h1>
+    <table class="table">
+      <thead class="thead-purple text-center">
+        <tr>
+          <th scope="col">id_usuario</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Email</th>
+          <th scope="col">Perfil</th>
+          <th scope="col">Administrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+        <form action="abmPerfiles/{{id_user}}" method="post">
+          <tr class="text-center">
+            <th scope="row ">{{id_user}}</th>
+            <td>{{nombre_user}}</td>
+            <td>{{apellido_user}}</td>
+            <td>{{mail_user}}</td>
+            <td>
+                <select class="custom-select custom-select-sm" name="perfil">
+                <option class="d-none" selected>{{perfil}}</option>
+                <option value="admin">admin</option>
+                <option value="paciente">paciente</option>
+                <option value="kinesiologo">kinesiologo</option>
+              </select>
+             </td>
+                
+            <td>
+              <button type="submit" class="btn btn-warning rounded"> modificar </button>
+            </td>
+          </tr>
+          </form>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+</section>

@@ -1,6 +1,9 @@
 body {
   padding: 0px !important;
-  font-family: 'Open Sans', sans-serif
+  font-family: 'Open Sans', sans-serif;
+  margin:0;
+ 
+
   
 }
 html {
@@ -31,16 +34,14 @@ img {
 
 
 .section {
-  width: 100vw;
- 
+  min-height: 100vh;
   margin-top: 75px ;
   padding-top: 25px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   background-image: url('/images/body-background-3.png');
-  background-repeat: repeat;
+  background-repeat: cover;
   background-size: 100%;
-
- 
+   
 }
 
 /* MENU */
@@ -51,7 +52,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    opacity: 0.95;
+    /* opacity: 0.95; --> le tuve que sacar el opacity porque cuando hago click sobre el collapse hay un error en el efecto visual y se rompe el nav*/ 
   }
   .logo{
     margin-left: 5%;
@@ -80,7 +81,15 @@ img {
     display: block;
     color: #fff;
   }
-  .menu_items  li:hover a, li.active a {
+
+  .menu_items li:hover{
+    
+    text-decoration: underline;
+    text-decoration-color: #51acce;
+    text-underline-offset: 50%;
+    transition: .5s;
+  }
+  .menu_items   li.active a {
     border-radius: 5px ;
     color: #fff;
     /* background-color:#70EAE2; */
@@ -379,6 +388,11 @@ img {
 }
 
 /* Services */
+
+.services-area{
+  margin: auto;
+  align-content: center;
+}
 .services-icon {
   color: #444;
   display: inline-block;
@@ -789,4 +803,32 @@ background:#eee;
 .single_advisor_profile:hover .single_advisor_details_info p,
 .single_advisor_profile:focus .single_advisor_details_info p {
     color: #ffffff;
+}
+
+
+/* ADMIN PANNEL */
+
+.adminContent{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  
+}
+
+.adminFunction{
+  text-align: center;
+  border-radius: 13px;
+  line-height:100px;
+  font-size: 22px;
+  background-color: #404990;
+}
+
+.adminFunction a{
+ text-decoration: none;
+ color: white;
+}
+
+.thead-purple{
+  color: white;
+  background-color:#404990 ;
 }

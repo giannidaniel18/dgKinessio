@@ -31,7 +31,12 @@ app.engine('hbs', engine({
     layoutsDir: path.join(app.get ("views"), "layouts"),
     
     // partialsDir: path.join(app.get ("views"), "partials"),  --> Por default se toma esta ruta views/partials (solo se configura si se cambia esta ruta)
-    extname : '.hbs'
+    extname : '.hbs',
+    helpers :{
+        isPerfil:  function(arg1, arg2, options) {
+            return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+        }
+    }
 }));
 // app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -74,6 +79,7 @@ app.use(require('./routes/index.routes'))
 app.use(require('./routes/sendMail.routes'));
 app.use(require('./routes/users.routes'));
 app.use(require('./routes/ejercicios.routes'));
+app.use(require('./routes/admin.routes'));
 
 
 

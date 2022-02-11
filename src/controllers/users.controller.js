@@ -27,10 +27,11 @@ usersCtrl.signUp = (req, res) => {
       nombreUsuario,
       apellidoUsuario,
       emailUsuario,
+      footer: true
     });
   } else {
     passport.authenticate("local.signup", {
-      successRedirect: "/",
+      successRedirect: "/users/profile",
       failureRedirect: "/users/signup",
       failureFlash: true,
     })(req, res);
@@ -65,6 +66,7 @@ usersCtrl.renderEditProfile = (req, res) => {
 };
 usersCtrl.renderProfile = (req, res) => {
   res.render("users/profile", { footer: true });
+  
 };
 usersCtrl.editProfile = async (req, res) => {
     const {id_user} = req.params;

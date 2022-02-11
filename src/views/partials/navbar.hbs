@@ -1,6 +1,8 @@
 <nav id="navbar" class=" menu fixed-top ">
 
+  <div class="divlogo">
   <a href="/"> <img class="logo disabled" src="/images/loguito.png"> </a>
+  </div>  
   <ul class="menu_items mb-0">
     <li class="{{#if isIndex}} active {{/if}} itenMenu"><a href="/">Inicio</a></li>
     <li class="{{#if isNosotros}} active {{/if}} itenMenu"><a href="/nosotros2">Quienes somos</a></li>
@@ -11,15 +13,22 @@
     <li class="itenMenu  mr-5" id="register"><a href="/users/signup"> <i class="fas fa-key"></i> registrarse</a></li>
     {{/unless}}
     {{#if user}}
-    <li class="nav-item dropdown">
-        <a class="{{#if isEjercicios}} active {{/if}}itenMenu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          Ejercicios
-        </a>
-        <div class="dropdown-menu " aria-labelledby="navbarDropdown" style="background-color: #6351ce;" >
-          <a class="dropdown-item " href="/ejercicios" style="background-color: #6351ce;">Todos los ejercicios</a>
-          <a class="dropdown-item " href="/ejercicios/create" style="background-color: #6351ce;" >Crear un ejercicio</a>
-        </div>
-      </li>
+      {{#isPerfil user.perfil "admin"}}
+      <li class="{{#if isAdmin}} active {{/if}} itenMenu"><a href="/admin">Administración</a></li>
+        {{/isPerfil}}
+        {{#isPerfil user.perfil "kinesiologo"}}
+      <li class="nav-item dropdown">
+          <a class="{{#if isEjercicios}} active {{/if}}itenMenu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Ejercicios
+          </a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown" style="background-color: #6351ce;" >
+            <a class="dropdown-item " href="/ejercicios" style="background-color: #6351ce;">Todos los ejercicios</a>
+            <a class="dropdown-item " href="/ejercicios/create" style="background-color: #6351ce;" >Crear un ejercicio</a>
+          </div>
+        </li>
+        
+        {{/isPerfil}}
+
     
     <li class="itenMenu ml-5 " id="usuario"><a href="/users/profile"><i class="fas fa-user"></i> {{user.nombre_user}}</a></li>
     <li class="itenMenu mr-5" id="logout"><a href="/users/logout"> <i class="fas fa-key"></i> Cerrar sesion</a></li>

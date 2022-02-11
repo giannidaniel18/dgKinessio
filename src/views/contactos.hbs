@@ -1,12 +1,5 @@
 <section id="contacto" class="section">
- {{#if message}}
-        <div class=" mt-3 alert alert-success alert-dismissible fade show" role="alert">
-          <strong>¡Mensaje enviado!</strong> En breves nos pondremos en contacto con usted ¡Muchas gracias por confiar en nosotros!
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button> 
-        </div>
-        {{/if}}
+ {{>messages}}
 
    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, harum a itaque deserunt blanditiis voluptate totam ipsam, porro quod aliquid eos. Doloribus repellat, quae tenetur eius ab ducimus inventore excepturi!
@@ -27,7 +20,7 @@
       </div>
       <div id="contact-us" class="col-lg-6 col-md-6 col-xs-12">
         <div class="contact-form">
-          <form id="" action="/send-email" method="post">
+          <form  action="/send-email" method="post">
             <h2>Contactanos</h1>
               <div class="row">
                 <div class="col-md-6 col-sm-12">

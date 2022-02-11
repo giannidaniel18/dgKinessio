@@ -21,37 +21,67 @@
                     <div class="row mt-2 ">
                         <div class="col-md-4 ">
                             <h4> <strong>Nombre</strong> </h4>
-                            <p >{{user.nombre_user}}</p>
+                            {{#if user.nombre_user}}
+                             <p >{{user.nombre_user}}</p>
+                            {{else}} 
+                             <p >-</p>
+                            {{/if}}
                         </div>
                         <div class="col-md-4 ">
                             <h4><strong>Apellido</strong></h4>
-                            <p>{{user.apellido_user}}</p>
+                            {{#if user.apellido_user}}
+                             <p >{{user.apellido_user}}</p>
+                            {{else}} 
+                             <p >-</p>
+                            {{/if}}
                         </div>
                         <div class="col-md-4 ">
                            <h4> <strong>Correo electrónico</strong></h4>
+                            {{#if user.mail_user}}
                             <p>{{user.mail_user}}</p>
+                            {{else}} 
+                             <p >-</p>
+                            {{/if}}
                         </div>
                         
                     </div>
                     <div class="row mt-3 "> 
                         <div class="col-md-4 ">
                             <h4><strong>Tipo de documento</strong></h4>
+                            {{#if user.id_tipoDoc}}
                             <p>{{user.id_tipoDoc}}</p>
+                            {{else}} 
+                            <p>-</p>
+                            {{/if}}
                         </div>
                         <div class="col-md-5">
                              <h4><strong>Numero de documento</strong></h4>
+                            
+                            {{#if user.nro_doc}}
                             <p>{{user.nro_doc}}</p>
+                            {{else}} 
+                            <p >-</p>
+                            {{/if}}
                         </div>
                         <div class="col-md-3">
-                             <h4><strong>Nacionalidad</strong></h4>
+                            <h4><strong>Nacionalidad</strong></h4>
+                            
+                            {{#if user.Nacionalidad}}
                             <p>{{user.Nacionalidad}}</p>
+                            {{else}} 
+                            <p >-</p>
+                            {{/if}}
                         </div>
 
                     </div>
                     <div class="row mt-3"> 
                        <div class="col-md-4 ">
                             <h4><strong>Teléfono de contacto</strong></h4>
-                            <p>{{user.tel_contacto}}</p>
+                            {{#if user.tel_contacto}}
+                             <p >{{user.tel_contacto}}</p>
+                            {{else}} 
+                             <p>-</p>
+                            {{/if}}
                        </div>
                         
 
