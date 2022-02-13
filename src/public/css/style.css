@@ -111,13 +111,13 @@ img {
     top: 65px;
   }
   
-  @media  screen and (max-width: 952px) {
+  @media  screen and (max-width: 1055px) {
     .menu_items li a{
       font-size: 16px;
     }
   }
   
-  @media screen and (max-width: 858px){
+  @media screen and (max-width: 1055px){
     .menu {
       height: 65px;
       opacity: 1;
