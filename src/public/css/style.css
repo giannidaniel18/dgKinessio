@@ -437,10 +437,10 @@ img {
 /* CONTACTO */
 
 
-#contacto {
-  
-  padding-left: 150px;
-  padding-right: 150px;
+.contacto {
+ padding-inline: 5%;
+ display: flex;
+ justify-content: space-evenly;
 }
 
 
@@ -513,6 +513,7 @@ img {
 
 @media (max-width: 858px) {
 
+ 
  
   #contact-us #map{
     margin-top: 10px !important;
@@ -654,14 +655,8 @@ img {
 .social-icons a.instagram:hover{
   color: #E1306C
 }
-@media (max-width:858px)
-{
-  .social-icons li.title{
-    display:block;
-    margin-right:0;
-    font-weight:600
-  }
-}
+
+
 
 /* SIGN IN */
 
@@ -816,6 +811,7 @@ background:#eee;
 }
 
 .adminFunction{
+  max-width: 300px;
   text-align: center;
   border-radius: 13px;
   line-height:100px;
@@ -831,4 +827,14 @@ background:#eee;
 .thead-purple{
   color: white;
   background-color:#404990 ;
+}
+@media (max-width:858px)
+{
+  .adminContent{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+  }
 }
