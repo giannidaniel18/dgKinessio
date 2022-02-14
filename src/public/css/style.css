@@ -17,6 +17,28 @@ img {
 }
 
 
+.imgbody{
+  width: 50px;
+  border-radius: 50%;
+
+}
+
+
+.btn-ejercicio{
+  font-size: 18px;
+  text-align: center;
+  text-align-last: center;
+}
+
+@media screen and (max-width: 400px){
+  .btn-ejercicio{
+    font-size: 12px;
+    text-align: center;
+    text-align-last: center;
+    
+  }
+}
+
 .editprofile::before{
   
       content: "";

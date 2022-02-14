@@ -30,5 +30,21 @@ const transport = nodemailer.createTransport({
     }
   });
 
+helpers.embebedLink = (link)=>{
+
+  let posicion1 = link.search("=");
+  let posicion2 = link.search("&");
+  let emebedURL = ""
+  if(posicion1 == -1){
+    emebedURL = link
+  } else if(posicion2 == -1){
+    emebedURL = "https://www.youtube.com/embed/"+ link.slice(posicion1 + 1);
+  } else {
+    emebedURL = "https://www.youtube.com/embed/"+ link.slice(posicion1 + 1, posicion2);
+  }
+  return emebedURL
+
+}
+
 module.exports = {helpers, transport};
 

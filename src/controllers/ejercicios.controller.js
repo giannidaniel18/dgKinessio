@@ -1,5 +1,6 @@
 const pool = require("../database");
 const ejerciciosCtrl = {};
+const {helpers} = require('../lib/helpers')
 
 ejerciciosCtrl.renderEjercicios = async (req, res) => {
   const ejercicios = await pool.query(
@@ -12,7 +13,7 @@ ejerciciosCtrl.renderEjercicios = async (req, res) => {
   });
 };
 ejerciciosCtrl.addEjercicio = async (req, res) => {
-  const {
+  let {
     nombre_ejercicio,
     zona_anatomica,
     nivel,
@@ -20,6 +21,9 @@ ejerciciosCtrl.addEjercicio = async (req, res) => {
     link_video,
     contraindicaciones,
   } = req.body;
+
+  link_video = helpers.embebedLink(link_video)
+
   const newEjercicio = {
     nombre_ejercicio,
     zona_anatomica,
@@ -55,7 +59,7 @@ ejerciciosCtrl.editEjercicio = async (req, res) => {
 };
 ejerciciosCtrl.updateEjercicio = async (req, res) => {
   const { id_ejercicio } = req.params;
-  const {
+  let {
     nombre_ejercicio,
     zona_anatomica,
     nivel,
@@ -63,6 +67,7 @@ ejerciciosCtrl.updateEjercicio = async (req, res) => {
     link_video,
     contraindicaciones,
   } = req.body;
+  link_video = helpers.embebedLink(link_video)
   const updatedEjercicio = {
     nombre_ejercicio,
     zona_anatomica,

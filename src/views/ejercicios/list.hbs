@@ -14,21 +14,17 @@
     {{#each ejercicios}}
     <div class="accordion container" id="accordionExample">
         <div class="card">
-            <div class="card-header d-inline-flex" id="heading{{id_ejercicio}}">
-                <div class="col-md-8">
+            <div class="card-header d-inline-flex p-2" id="heading{{id_ejercicio}}">
+                <div class="col-md-0.5"><img class="imgbody mx-2" src="/images/body/bodypart_{{zona_anatomica}}.png"></div>
+                <div class="col-md-11.5">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        <button  class="btn btn-block btn-ejercicio" type="button" data-toggle="collapse"
                             data-target="#ejercicio{{id_ejercicio}}" aria-expanded="true"
                             aria-controls="{{id_ejercicio}}">{{nombre_ejercicio}}
                         </button>
                     </h2>
                 </div>
-                <div class="col-md-4 d-flex justify-content-end">
-                    <a href="/ejercicios/delete/{{id_ejercicio}}" class="btn btn-danger rounded mx-2">Eliminar <i class="far fa-trash-alt"></i>
-                    </a>
-                    <a  href="/ejercicios/edit/{{id_ejercicio}}" class="btn btn-warning rounded  mx-2">Modificar <i
-                            class="far fa-edit"></i></i></a>
-                </div>
+                
             </div>
 
             <div id="ejercicio{{id_ejercicio}}" class="collapse " aria-labelledby="heading{{id_ejercicio}}"
@@ -36,11 +32,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>{{zona_anatomica}}</h3>
+                            <h3>Zona Anatomica : {{zona_anatomica}}</h3>
                             <p>{{descripcion}}</p>
                         </div>
                         <div class="col-md-6 text-right">
-                            <h3> Nivel de dificultad : {{nivel}} </h3>
+                            <h4> Nivel de dificultad : {{nivel}} </h4>
                         </div>
                         <div class="col-md-12 ">
                             <iframe width="100%" height="400" src="{{link_video}}">
@@ -49,6 +45,12 @@
                         <div class="col-md-12">
                             <p><strong>Contraindicaciones : </strong> {{contraindicaciones}}</p>
                         </div>
+                        <div class="col-md-12 d-flex justify-content-end">
+                    <a href="/ejercicios/delete/{{id_ejercicio}}" class="btn btn-danger rounded mx-2">Eliminar <i class="far fa-trash-alt"></i>
+                    </a>
+                    <a  href="/ejercicios/edit/{{id_ejercicio}}" class="btn btn-warning rounded  mx-2">Modificar <i
+                            class="far fa-edit"></i></i></a>
+                </div>
 
                     </div>
                 </div>
