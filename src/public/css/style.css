@@ -9,35 +9,31 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-
-img {
-  max-width: 100%;
-  height: auto;
+.section {
+  min-height: 100vh;
+  margin-top: 75px ;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  background-image: url('/images/body-background-3.png');
+  background-repeat: cover;
+  background-size: 100%;
+   
 }
 
 
+
+/* EJERCICIOS */
+.btn-ejercicio{
+  font-size: 18px;
+  text-align: left;
+  text-align-last: left;
+}
 .imgbody{
   width: 50px;
   border-radius: 50%;
-
 }
 
-
-.btn-ejercicio{
-  font-size: 18px;
-  text-align: center;
-  text-align-last: center;
-}
-
-@media screen and (max-width: 400px){
-  .btn-ejercicio{
-    font-size: 12px;
-    text-align: center;
-    text-align-last: center;
-    
-  }
-}
+/* PERFIL USAURIO */
 
 .editprofile::before{
   
@@ -55,16 +51,9 @@ img {
 }
 
 
-.section {
-  min-height: 100vh;
-  margin-top: 75px ;
-  padding-top: 25px;
-  padding-bottom: 50px;
-  background-image: url('/images/body-background-3.png');
-  background-repeat: cover;
-  background-size: 100%;
-   
-}
+
+
+
 
 /* MENU */
 .menu {
@@ -193,6 +182,11 @@ img {
   }
 
 /* NOSOTROS */
+
+.advisor_thumb img {
+  max-width: 100%;
+  height: auto;
+}
 
 .team-member {
   background: rgba(0, 0, 0, 0.65) none repeat scroll 0 0;

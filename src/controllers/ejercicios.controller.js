@@ -90,6 +90,19 @@ ejerciciosCtrl.renderEjerciciosform = (req, res) => {
     footer: false,
   });
 };
+ejerciciosCtrl.searchEjercicio= async (req, res) => {
+  let searchterm = req.body.search;
+  const ejercicios = await pool.query(
+    "SELECT * FROM ejercicios where nombre_ejercicio LIKE ? ", ['%' + searchterm + '%']
+  );
+  console.log(searchterm);
+  res.render("ejercicios/list", {
+    isEjercicios: true,
+    ejercicios,
+    searchterm,
+    footer: false,
+  });
+}
 
 
 module.exports = ejerciciosCtrl;

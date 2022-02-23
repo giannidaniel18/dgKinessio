@@ -2,21 +2,25 @@
 {{>messages}}
 
     <h1 class="text-center my-4">Ejercicios creados</h1>
-    <div class="container d-flex justify-content-between my-3">
+    <form class="container d-flex justify-content-between my-3" action="/ejercicios/search" method="post">
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="search"><i class="fas fa-search"></i></span>
             </div>
-            <input type="search" class="form-control" placeholder="Buscar" aria-label="Username"
+            <input type="search" class="form-control" name="search" value="{{searchterm}}" placeholder="ingresa el valor a buscar y luego presiona enter" aria-label="search"
                 aria-describedby="search">
-        </div>
+                 <div class="input-group-prepend">
+                <a href="/ejercicios" class=" btn input-group-text text-success"><i class="fas fa-refresh mr-1"></i> Refresh</a>
+            </div>
+                
+        </form>
     </div>
     {{#each ejercicios}}
     <div class="accordion container" id="accordionExample">
         <div class="card">
-            <div class="card-header d-inline-flex p-2" id="heading{{id_ejercicio}}">
-                <div class="col-md-0.5"><img class="imgbody mx-2" src="/images/body/bodypart_{{zona_anatomica}}.png"></div>
-                <div class="col-md-11.5">
+            <div class="card-header d-flex p-2 align-items-center" id="heading{{id_ejercicio}}">
+                <div class="col-md-1 col-sm-1 col-2 p-0  "><img class="imgbody mx-2" src="/images/body/bodypart_{{zona_anatomica}}.png"></div>
+                <div class="col-md-11 col-sm-11 col-10">
                     <h2 class="mb-0">
                         <button  class="btn btn-block btn-ejercicio" type="button" data-toggle="collapse"
                             data-target="#ejercicio{{id_ejercicio}}" aria-expanded="true"
